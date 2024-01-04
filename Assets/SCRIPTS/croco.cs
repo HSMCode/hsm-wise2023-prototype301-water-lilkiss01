@@ -18,6 +18,7 @@ public class croco : MonoBehaviour
     public Text scoreText;
     public GameObject GameOverScreen;
     private int score = 0;
+    [SerializeField] private AudioSource collectionSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +109,7 @@ public class croco : MonoBehaviour
 
         if (isAlive && other.CompareTag("Fish"))
         {
+            collectionSoundEffect.Play();
             Destroy(other.gameObject);
 
             score += 1;
