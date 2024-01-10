@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (gameLost)
+            if (croco.isAlive == false)
             {
                 RestartGame();
             }

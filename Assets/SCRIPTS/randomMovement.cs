@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class RandomMovement : MonoBehaviour
 {
+
     private Transform player;
     public float moveSpeed = 3.0f;
     public float rotationSpeed = 5.0f;
     private Vector3 randomDirection;
+    public Vector3 Direction;
     private float distance;
+
     private void Start()
     {
         player = GameObject.Find("Crocodile").transform;
         InvokeRepeating("GetRandomDirection", 0f, 2f);
+        
+
     }
     void Update()
     {
