@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private Transform player;
-    public float moveSpeed = 3.0f;
+    public float moveSpeed = 1.0f;
     public float rotationSpeed = 5.0f;
     private Vector3 randomDirection;
     public Vector3 Direction;
@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Crocodile").transform;
-        Direction = new Vector3(0, 0, 0.001f);
+        Direction = new Vector3(0, 0, 0.002f);
         InvokeRepeating("GetRandomDirection", 0f,2f);
         InvokeRepeating("randomtrue", 0f, 6f);
         InvokeRepeating("randomfalse", 3f, 6f);
@@ -33,8 +33,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (random == true)
         {
-            
-            transform.Translate(randomDirection * moveSpeed * Time.deltaTime, Space.World);
+
+            transform.Translate(randomDirection * (moveSpeed / 2) * Time.deltaTime, Space.World);
 
 
             if (randomDirection != Vector3.zero)
